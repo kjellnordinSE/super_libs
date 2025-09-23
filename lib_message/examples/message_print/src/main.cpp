@@ -1,19 +1,3 @@
-
----
-
-# `examples/message_print/platformio.ini`
-```ini
-[env:esp32dev]
-platform = espressif32
-board    = esp32dev
-framework = arduino
-monitor_speed = 115200
-
-; justera om din super_libs ligger annorlunda
-lib_extra_dirs = ../../..
-lib_ldf_mode   = chain+
-
-
 #include <Arduino.h>
 #include <message.h>
 
@@ -67,10 +51,4 @@ void setup() {
   );
 }
 
-void loop() {
-  delay(2000);
-}
-
-
-
-
+void loop() { delay(2000); }
