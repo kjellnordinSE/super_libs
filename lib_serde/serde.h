@@ -11,18 +11,34 @@
 #define SERDE_ENABLE_CBOR 1
 #endif
 
+// nya: styr decode separat om du vill spara flash
+#ifndef SERDE_ENABLE_JSON_DECODE
+#define SERDE_ENABLE_JSON_DECODE 1
+#endif
+#ifndef SERDE_ENABLE_CBOR_DECODE
+#define SERDE_ENABLE_CBOR_DECODE 1
+#endif
+
 namespace serde {
 
-// JSON (skriver alla fält, numeriska; soil som array[8])
+// ENCODE (du har redan dessa)
 #if SERDE_ENABLE_JSON
 size_t toJson(const msg::SensorV1& s, char* out, size_t cap);
 bool   toJson(const msg::SensorV1& s, Print& out);
 #endif
-
-// CBOR (map med int-nycklar; 1:ts,2:t_air,3:rh,4:p,5:lux10,6:t_sauna,7:t_water,
-//       8:batt,9:rssi,10:snr,11:soil_count,12:soil[8],13:ver)
 #if SERDE_ENABLE_CBOR
 size_t toCbor(const msg::SensorV1& s, uint8_t* out, size_t cap);
+#endif
+
+// DECODE (nya)
+#if SERDE_ENABLE_JSON_DECODE
+// förväntar JSON i vårt "egenproducerade" format; saknade fält → lämnas 0
+bool   fromJson(const char* json, msg::SensorV1& out);
+#endif
+
+#if SERDE_ENABLE_CBOR_DECODE
+// förväntar CBOR map med int-nycklar (1..13) som vi använder; ok med extra nycklar
+bool   fromCbor(const uint8_t* buf, size_t len, msg::SensorV1& out);
 #endif
 
 } // namespace serde
