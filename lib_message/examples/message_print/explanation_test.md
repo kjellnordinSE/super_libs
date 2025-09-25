@@ -34,3 +34,19 @@ test_message_roundtrip.cpp:...: test_roundtrip [PASSED]
 ==================== 1 Tests 0 Failures ====================
 Tips: Vill du köra testet inuti examples/message_print i libbet? Skapa en test/ mapp där också och kör pio test i den katalogen – PlatformIO kör tester per projekt (där platformio.ini ligger).
 
+KÖR
+cd ~/Documents/Git/super_libs/lib_message/examples/message_print
+pio run -e esp32dev -t upload
+pio device monitor
+Kör testet (roundtrip):
+
+bash
+Kopiera kod
+pio test -e esp32dev
+Pass = encoder→decoder ger exakt samma fält + CRC8 OK.
+
+Commit & push (uppdaterar PR:en):
+
+bash
+Kopiera kod
+
