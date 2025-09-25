@@ -1,0 +1,8 @@
+{
+  "name": "lib_message",
+  "version": "0.1.0",
+  "description": "48B wire format (SensorV1) with encode/decode and CRC8",
+  "keywords": "esp32, esp-now, lora, message, crc8",
+  "frameworks": "arduino",
+  "platforms": ["espressif32"]
+}

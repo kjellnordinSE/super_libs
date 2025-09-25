@@ -1,0 +1,8 @@
+{
+  "name": "lib_serde",
+  "version": "0.1.0",
+  "description": "JSON/CBOR serialization for msg::SensorV1",
+  "keywords": "esp32, json, cbor, telemetry",
+  "frameworks": "arduino",
+  "platforms": ["espressif32"]
+}
