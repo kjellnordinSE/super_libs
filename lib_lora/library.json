@@ -1,0 +1,11 @@
+{
+  "name": "lib_lora",
+  "version": "0.1.0",
+  "frameworks": "arduino",
+  "platforms": ["espressif32"],
+  "build": { "srcDir": "src", "includeDir": "include" },
+  "dependencies": [
+    { "name": "RadioLib", "version": "^6.6.0" }
+  ]
+}
+
