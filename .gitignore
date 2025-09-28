@@ -1,4 +1,15 @@
+cat >> .gitignore << 'EOF'
+# PlatformIO
 .pio/
+.pioenvs/
+.piolibdeps/
+
+# VSCode/IDE
 .vscode/
+.idea/
+
+# OS skräp
 .DS_Store
-*.zip
+Thumbs.db
+EOF
+
